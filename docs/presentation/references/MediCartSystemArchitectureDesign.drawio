@@ -1,0 +1,1087 @@
+<mxfile host="app.diagrams.net" agent="claude">
+  <diagram id="medicart-arch" name="MediCart Architecture">
+    <mxGraphModel grid="0" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1200" pageHeight="1920" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n37" edge="1" parent="1" source="n35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;startArrow=classic;exitX=0.996;exitY=0.574;exitDx=0;exitDy=0;exitPerimeter=0;" target="n27" value="firebase-admin push_mission()&lt;br&gt;mission_pool/{mid} = {action, status:&#39;pending&#39;, ts}&lt;br&gt;(웹→DB 명령 하달 · ROS 직접통신 없음)">
+          <mxGeometry relative="1" x="-0.5436" y="-3" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="2370" y="767" />
+              <mxPoint x="2370" y="230" />
+              <mxPoint x="1495" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n104" edge="1" parent="1" source="n39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;startArrow=classic;entryX=0;entryY=0.7;entryDx=0;entryDy=0;" target="n27" value="mission_pool listen/update/delete">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1077" y="1161" />
+              <mxPoint x="1077" y="383" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n105" edge="1" parent="1" source="n39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;entryX=0;entryY=0.55;entryDx=0;entryDy=0;" target="n28" value="mission_log / mission_status write">
+          <mxGeometry relative="1" x="0.0002" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1171" y="1182" />
+              <mxPoint x="1171" y="454" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n106" edge="1" parent="1" source="n78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n32" value="read rooms (x, y, yaw, patient_id)">
+          <mxGeometry relative="1" x="-0.0001" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="920" y="1229" />
+              <mxPoint x="2001" y="1229" />
+              <mxPoint x="2001" y="518" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n108" edge="1" parent="1" source="n80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n30" value="update display/current_patient">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="477" y="973" />
+              <mxPoint x="2060" y="973" />
+              <mxPoint x="2060" y="372" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n112" edge="1" parent="1" source="n85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.926;entryY=0.002;entryDx=0;entryDy=0;entryPerimeter=0;" target="n110" value="/robot3/cmd_vel&lt;br&gt;geometry_msgs/Twist&lt;br&gt;(Nav2 controller 출력)">
+          <mxGeometry relative="1" x="0.7083" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="761" y="2290" as="sourcePoint" />
+            <mxPoint x="323" y="2934" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n113" edge="1" parent="1" source="n43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="n110" value="/robot3/undock&lt;br&gt;irobot_create_msgs/action/Undock">
+          <mxGeometry relative="1" x="-0.262" y="4" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="216" y="1771" />
+              <mxPoint x="-198" y="1771" />
+              <mxPoint x="-198" y="3600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n114" edge="1" parent="1" source="n46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n110" value="/robot3/dock&lt;br&gt;irobot_create_msgs/action/Dock">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="216" y="2070" />
+              <mxPoint x="-80" y="2070" />
+              <mxPoint x="-80" y="3566" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n115" edge="1" parent="1" source="n110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n86" value="/robot3/scan&lt;br&gt;sensor_msgs/LaserScan&lt;br&gt;→ amcl localize">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="293" y="3440" />
+              <mxPoint x="293" y="3440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n172" edge="1" parent="1" source="4drABsTxXk2ukwIIJcH1-203" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;startArrow=classic;entryX=0.778;entryY=0.03;entryDx=0;entryDy=0;entryPerimeter=0;" target="n27" value="mission_pool listen/update/delete">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3396" y="1179" />
+              <mxPoint x="3396" y="335" />
+              <mxPoint x="1559" y="335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n173" edge="1" parent="1" source="4drABsTxXk2ukwIIJcH1-324" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;entryX=0;entryY=0.8;entryDx=0;entryDy=0;exitX=0.487;exitY=-0.002;exitDx=0;exitDy=0;exitPerimeter=0;" target="n28" value="mission_log / mission_status write">
+          <mxGeometry relative="1" x="0.7348" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n175" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;dashed=1;" value="Create3 base&lt;br&gt;dock · undock · cmd_vel&lt;br&gt;LiDAR /scan" vertex="1">
+          <mxGeometry height="110" width="260" x="2385" y="3572" as="geometry" />
+        </mxCell>
+        <mxCell id="n177" edge="1" parent="1" source="4drABsTxXk2ukwIIJcH1-230" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;entryX=0.4;entryY=0;entryDx=0;entryDy=0;" target="n175" value="/robot6/cmd_vel&lt;br&gt;geometry_msgs/Twist&lt;br&gt;(Nav2 controller)">
+          <mxGeometry relative="1" x="-0.2995" y="-2" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="3066" y="2984" />
+              <mxPoint x="3066" y="3395" />
+              <mxPoint x="2489" y="3395" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n178" edge="1" parent="1" source="n129" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="n175" value="/robot6/cmd_vel (safety_gate 통과)&lt;br&gt;geometry_msgs/Twist">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3153" y="2356" />
+              <mxPoint x="3153" y="3627" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n180" edge="1" parent="1" source="4drABsTxXk2ukwIIJcH1-189" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="n175" value="/robot6/dock&lt;br&gt;irobot_create_msgs/action/Dock">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2179" y="2073" />
+              <mxPoint x="2179" y="3654" />
+            </Array>
+            <mxPoint x="3173" y="2358" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n182" edge="1" parent="1" source="n175" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="4drABsTxXk2ukwIIJcH1-231" value="/robot6/scan&lt;br&gt;sensor_msgs/LaserScan&lt;br&gt;→ amcl localize">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2416" y="3296" />
+              <mxPoint x="2416" y="3296" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n183" edge="1" parent="1" source="n175" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0.692;exitY=-0.036;exitDx=0;exitDy=0;exitPerimeter=0;" target="4drABsTxXk2ukwIIJcH1-232" value="/robot6/scan → costmap">
+          <mxGeometry relative="1" x="0.1602" y="-4" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="2565" y="3456" />
+              <mxPoint x="2797" y="3456" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Firebase RTDB" vertex="1">
+          <mxGeometry height="284" width="677" x="1310" y="296" as="geometry" />
+        </mxCell>
+        <mxCell id="n27" parent="4drABsTxXk2ukwIIJcH1-1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="{ns}/mission_pool/{mid}&lt;br&gt;주문 큐 (web write)" vertex="1">
+          <mxGeometry height="56" width="230" x="70" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="n30" parent="4drABsTxXk2ukwIIJcH1-1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="display/current_patient&lt;br&gt;+ updated_at" vertex="1">
+          <mxGeometry height="56" width="236" x="346" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="n28" parent="4drABsTxXk2ukwIIJcH1-1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="{ns}/mission_log/{mid}&lt;br&gt;종료 아카이브" vertex="1">
+          <mxGeometry height="50" width="230" x="70" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="n29" parent="4drABsTxXk2ukwIIJcH1-1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="{ns}/mission_status&lt;br&gt;1Hz heartbeat" vertex="1">
+          <mxGeometry height="50" width="230" x="70" y="204" as="geometry" />
+        </mxCell>
+        <mxCell id="n32" parent="4drABsTxXk2ukwIIJcH1-1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="rooms/{room_id}&lt;br&gt;x, y, yaw, patient" vertex="1">
+          <mxGeometry height="56" width="236" x="346" y="204" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-2" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillStyle=solid;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="PC3 (Web/UI)" vertex="1">
+          <mxGeometry height="200" width="620" x="1310" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="n34" parent="4drABsTxXk2ukwIIJcH1-2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;strokeWidth=2;" value="Web Frontend&lt;br&gt;문진 /display ·&lt;br&gt;약 선택 · 대시보드 트리거" vertex="1">
+          <mxGeometry height="90" width="220" x="25" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="n35" parent="4drABsTxXk2ukwIIJcH1-2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;strokeWidth=2;" value="FastAPI backend&lt;br&gt;app · patients · ocr · fb_read" vertex="1">
+          <mxGeometry height="90" width="220" x="375" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="n36" edge="1" parent="4drABsTxXk2ukwIIJcH1-2" source="n34" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;startArrow=classic;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n35" value="HTTP / REST">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="btn1" parent="4drABsTxXk2ukwIIJcH1-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1;" value="▶ 순찰 시작&lt;br&gt;(robot3)" vertex="1">
+          <mxGeometry height="36" width="105" x="25" y="152" as="geometry" />
+        </mxCell>
+        <mxCell id="btn2" parent="4drABsTxXk2ukwIIJcH1-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1;" value="▶ 투약 시작&lt;br&gt;(robot6)" vertex="1">
+          <mxGeometry height="36" width="105" x="140" y="152" as="geometry" />
+        </mxCell>
+        <mxCell id="ebtn1" edge="1" parent="4drABsTxXk2ukwIIJcH1-2" source="btn1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#82b366;fontSize=9;labelBackgroundColor=#FFFFFF;dashed=1;" target="n35" value="onClick → POST&lt;br&gt;/api/robots/robot3/missions&lt;br&gt;{action:&#39;patrol_mission&#39;}">
+          <mxGeometry relative="1" x="-0.3791" y="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="78" y="268" />
+              <mxPoint x="485" y="268" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ebtn2" edge="1" parent="4drABsTxXk2ukwIIJcH1-2" source="btn2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#82b366;fontSize=9;labelBackgroundColor=#FFFFFF;dashed=1;" target="n35" value="onClick → POST&lt;br&gt;/api/robots/robot6/missions&lt;br&gt;{action:&#39;start&#39;, mode:&#39;round&#39;}">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="193" y="236" />
+              <mxPoint x="485" y="236" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-161" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="AMR1 (robot3)" vertex="1">
+          <mxGeometry height="260" width="1444" x="99" y="3424" as="geometry" />
+        </mxCell>
+        <mxCell id="n110" parent="4drABsTxXk2ukwIIJcH1-161" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;dashed=1;" value="Create3 base&lt;br&gt;dock · undock · cmd_vel&lt;br&gt;LiDAR /scan" vertex="1">
+          <mxGeometry height="110" width="260.5" x="113.5" y="87" as="geometry" />
+        </mxCell>
+        <mxCell id="n111" parent="4drABsTxXk2ukwIIJcH1-161" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;dashed=1;" value="OAK-D 카메라&lt;br&gt;rgb / stereo(depth)" vertex="1">
+          <mxGeometry height="110" width="260" x="1025" y="81" as="geometry" />
+        </mxCell>
+        <mxCell id="n116" edge="1" parent="1" source="n110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=1.009;exitY=0.521;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.746;entryY=0.999;entryDx=0;entryDy=0;entryPerimeter=0;" target="n87" value=" ">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="664" y="3568" />
+            </Array>
+            <mxPoint x="480" y="3057" as="sourcePoint" />
+            <mxPoint x="738" y="2477" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OFUF_CfVwZ2uhrald7n0-4" connectable="0" parent="n116" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="/robot6/scan →costmap" vertex="1">
+          <mxGeometry relative="1" x="-0.7113" y="-2" as="geometry">
+            <mxPoint x="102" y="-59" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-142" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="pc 1" vertex="1">
+          <mxGeometry height="2316" width="1444" x="86" y="1007" as="geometry" />
+        </mxCell>
+        <mxCell id="n74" edge="1" parent="4drABsTxXk2ukwIIJcH1-142" source="n44" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;edgeStyle=elbowEdgeStyle;" target="n57" value="/robot3/mode/patrol/set&lt;br&gt;std_msgs/String(JSON {active})&lt;br&gt;LATCHED">
+          <mxGeometry relative="1" x="0.3737" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n75" edge="1" parent="4drABsTxXk2ukwIIJcH1-142" source="n64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;entryX=0.789;entryY=0.77;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" value="/robot3/mode/patrol/status&lt;br&gt;std_msgs/String(JSON)&lt;br&gt;running/done/failed">
+          <mxGeometry relative="1" x="-0.4095" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="639" y="1535" />
+              <mxPoint x="499" y="1535" />
+              <mxPoint x="499" y="998" />
+              <mxPoint x="262" y="998" />
+            </Array>
+            <mxPoint x="624" y="1535.44" as="sourcePoint" />
+            <mxPoint x="262.02000000000044" y="951.9999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-164" parent="4drABsTxXk2ukwIIJcH1-142" style="swimlane;whiteSpace=wrap;html=1;" value="db_bridge package" vertex="1">
+          <mxGeometry height="389" width="697" x="242" y="53" as="geometry" />
+        </mxCell>
+        <mxCell id="n78" parent="4drABsTxXk2ukwIIJcH1-164" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;strokeWidth=2;" value="rooms_server&lt;br&gt;ListRooms 서버" vertex="1">
+          <mxGeometry height="60" width="190" x="487" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="n80" parent="4drABsTxXk2ukwIIJcH1-164" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;strokeWidth=2;" value="display_bridge" vertex="1">
+          <mxGeometry height="60" width="190" x="44" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="n39" parent="4drABsTxXk2ukwIIJcH1-164" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontStyle=1;strokeWidth=2;" value="db_node&lt;br&gt;RTDB ↔ ROS 브리지" vertex="1">
+          <mxGeometry height="70" width="170" x="266" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="n79" parent="4drABsTxXk2ukwIIJcH1-164" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;strokeWidth=2;" value="prescription_server&lt;br&gt;GetPrescription 서버" vertex="1">
+          <mxGeometry height="60" width="200" x="261" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="n97" edge="1" parent="4drABsTxXk2ukwIIJcH1-142" source="n78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n58" value="resp: success, room_ids[],&lt;br&gt;xs/ys/yaws[], patient_ids[]">
+          <mxGeometry relative="1" x="-0.2069" y="-6" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1010" y="329" />
+              <mxPoint x="1010" y="1042" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n96" edge="1" parent="4drABsTxXk2ukwIIJcH1-142" source="n58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n78" value="/robot3/db/list_rooms&lt;br&gt;medi_interfaces/srv/ListRooms&lt;br&gt;req: string filter=&#39;bed&#39;">
+          <mxGeometry relative="1" x="-0.1402" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="890" y="1027" />
+            </Array>
+            <mxPoint x="1226" y="565" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n94" edge="1" parent="4drABsTxXk2ukwIIJcH1-142" source="n39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n41" value="/robot3/mission_request&lt;br&gt;std_msgs/String (JSON)&lt;br&gt;{id, action, params, mode?}">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-166" edge="1" parent="4drABsTxXk2ukwIIJcH1-142" source="n47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n39" value=" ">
+          <mxGeometry relative="1" x="-0.357" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="-62" y="1134" />
+              <mxPoint x="-62" y="109" />
+              <mxPoint x="593" y="109" />
+            </Array>
+            <mxPoint x="337" y="1161" as="sourcePoint" />
+            <mxPoint x="526" y="199" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-173" connectable="0" parent="4drABsTxXk2ukwIIJcH1-166" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;/robot3/mission_feedback&lt;/span&gt;&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;std_msgs/String (JSON)&lt;/span&gt;&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;{id, status, detail}&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.5375" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-152" parent="4drABsTxXk2ukwIIJcH1-142" style="swimlane;whiteSpace=wrap;html=1;swimlaneFillColor=none;" value="mission_manager_node" vertex="1">
+          <mxGeometry height="695" width="360" x="46" y="515" as="geometry" />
+        </mxCell>
+        <mxCell id="n41" parent="4drABsTxXk2ukwIIJcH1-152" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="mission_request 수신" vertex="1">
+          <mxGeometry height="40" width="210" x="74" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="n42" parent="4drABsTxXk2ukwIIJcH1-152" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="IDLE" vertex="1">
+          <mxGeometry height="40" width="210" x="74" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="n43" parent="4drABsTxXk2ukwIIJcH1-152" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="UNDOCK&lt;br&gt;(Create3 action)" vertex="1">
+          <mxGeometry height="46" width="210" x="74" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="n44" parent="4drABsTxXk2ukwIIJcH1-152" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="PATROL_START&lt;br&gt;apply(&#39;start&#39;,&#39;patrol&#39;)" vertex="1">
+          <mxGeometry height="50" width="210" x="74" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="n45" parent="4drABsTxXk2ukwIIJcH1-152" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="patrol status&lt;br&gt;== done ?" vertex="1">
+          <mxGeometry height="80" width="180" x="89" y="374" as="geometry" />
+        </mxCell>
+        <mxCell id="n46" parent="4drABsTxXk2ukwIIJcH1-152" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="DOCK&lt;br&gt;(Create3 action)" vertex="1">
+          <mxGeometry height="46" width="210" x="74" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="n47" parent="4drABsTxXk2ukwIIJcH1-152" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="DONE&lt;br&gt;mission_feedback" vertex="1">
+          <mxGeometry height="46" width="210" x="74" y="596" as="geometry" />
+        </mxCell>
+        <mxCell id="n49" edge="1" parent="4drABsTxXk2ukwIIJcH1-152" source="n41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n42" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n50" edge="1" parent="4drABsTxXk2ukwIIJcH1-152" source="n42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n43" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n51" edge="1" parent="4drABsTxXk2ukwIIJcH1-152" source="n43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n44" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n52" edge="1" parent="4drABsTxXk2ukwIIJcH1-152" source="n44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n45" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n54" edge="1" parent="4drABsTxXk2ukwIIJcH1-152" source="n45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.869;entryDx=0;entryDy=0;entryPerimeter=0;" target="n44" value="no (대기)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="414" />
+              <mxPoint x="330" y="338" />
+              <mxPoint x="284" y="338" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n53" edge="1" parent="4drABsTxXk2ukwIIJcH1-152" source="n45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="n46" value="yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n55" edge="1" parent="4drABsTxXk2ukwIIJcH1-152" source="n46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n47" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-154" parent="4drABsTxXk2ukwIIJcH1-142" style="swimlane;whiteSpace=wrap;html=1;fillStyle=solid;labelBackgroundColor=none;swimlaneFillColor=none;" value="patrol_mode_node" vertex="1">
+          <mxGeometry height="770" width="360" x="565" y="863" as="geometry" />
+        </mxCell>
+        <mxCell id="n57" parent="4drABsTxXk2ukwIIJcH1-154" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="mode/patrol/set&lt;br&gt;{active:true} 수신" vertex="1">
+          <mxGeometry height="44" width="230" x="71" y="69" as="geometry" />
+        </mxCell>
+        <mxCell id="n58" parent="4drABsTxXk2ukwIIJcH1-154" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="list_rooms(filter=&#39;bed&#39;)" vertex="1">
+          <mxGeometry height="44" width="230" x="71" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="n59" parent="4drABsTxXk2ukwIIJcH1-154" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;fillStyle=solid;" value="남은 waypoint&lt;br&gt;있는가?" vertex="1">
+          <mxGeometry height="76" width="180" x="96" y="217" as="geometry" />
+        </mxCell>
+        <mxCell id="n60" parent="4drABsTxXk2ukwIIJcH1-154" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="NavigateToPose(목표)" vertex="1">
+          <mxGeometry height="44" width="230" x="71" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="n61" parent="4drABsTxXk2ukwIIJcH1-154" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="도착?" vertex="1">
+          <mxGeometry height="70" width="180" x="96" y="383" as="geometry" />
+        </mxCell>
+        <mxCell id="n62" parent="4drABsTxXk2ukwIIJcH1-154" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="identify/start(room_id)" vertex="1">
+          <mxGeometry height="44" width="230" x="71" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="n63" parent="4drABsTxXk2ukwIIJcH1-154" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="dwell 30s" vertex="1">
+          <mxGeometry height="44" width="230" x="71" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="n64" parent="4drABsTxXk2ukwIIJcH1-154" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="mode/patrol/status&lt;br&gt;{done}" vertex="1">
+          <mxGeometry height="44" width="230" x="74" y="649" as="geometry" />
+        </mxCell>
+        <mxCell id="n65" edge="1" parent="4drABsTxXk2ukwIIJcH1-154" source="n57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n58" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n66" edge="1" parent="4drABsTxXk2ukwIIJcH1-154" source="n58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n59" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n67" edge="1" parent="4drABsTxXk2ukwIIJcH1-154" source="n59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="n60" value="yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n69" edge="1" parent="4drABsTxXk2ukwIIJcH1-154" source="n60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n61" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n71" edge="1" parent="4drABsTxXk2ukwIIJcH1-154" source="n61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0.991;exitY=0.495;exitDx=0;exitDy=0;entryX=1.002;entryY=0.568;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" target="n60" value="no">
+          <mxGeometry relative="1" x="0.1532" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="286" y="418" />
+              <mxPoint x="330" y="418" />
+              <mxPoint x="330" y="345" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n70" edge="1" parent="4drABsTxXk2ukwIIJcH1-154" source="n61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="n62" value="yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n72" edge="1" parent="4drABsTxXk2ukwIIJcH1-154" source="n62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n63" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n73" edge="1" parent="4drABsTxXk2ukwIIJcH1-154" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n59" value="next">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="26" y="592" />
+              <mxPoint x="26" y="255" />
+            </Array>
+            <mxPoint x="69" y="592" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n68" edge="1" parent="4drABsTxXk2ukwIIJcH1-154" source="n59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" target="n64" value="no (완료)">
+          <mxGeometry relative="1" x="-0.8635" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="344" y="255" />
+              <mxPoint x="344" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-160" parent="4drABsTxXk2ukwIIJcH1-142" style="swimlane;whiteSpace=wrap;html=1;" value="Nav2 Stack" vertex="1">
+          <mxGeometry height="588" width="625" x="46" y="1657" as="geometry" />
+        </mxCell>
+        <mxCell id="n83" parent="4drABsTxXk2ukwIIJcH1-160" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;dashed=1;" value="bt_navigator&lt;br&gt;action server: /robot3/navigate_to_pose&lt;br&gt;nav2_msgs/action/NavigateToPose&lt;br&gt;(goal: geometry_msgs/PoseStamped)" vertex="1">
+          <mxGeometry height="75" width="410" x="103.5" y="91" as="geometry" />
+        </mxCell>
+        <mxCell id="n84" parent="4drABsTxXk2ukwIIJcH1-160" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;dashed=1;" value="planner_server&lt;br&gt;+ global_costmap&lt;br&gt;ComputePathToPose&lt;br&gt;→ nav_msgs/Path" vertex="1">
+          <mxGeometry height="80" width="195" x="54" y="218" as="geometry" />
+        </mxCell>
+        <mxCell id="n85" parent="4drABsTxXk2ukwIIJcH1-160" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;dashed=1;" value="controller_server&lt;br&gt;+ local_costmap&lt;br&gt;FollowPath(nav_msgs/Path)&lt;br&gt;→ cmd_vel" vertex="1">
+          <mxGeometry height="80" width="195" x="376" y="218" as="geometry" />
+        </mxCell>
+        <mxCell id="n86" parent="4drABsTxXk2ukwIIJcH1-160" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;dashed=1;" value="amcl (localization)&lt;br&gt;scan + map →&lt;br&gt;/robot3/amcl_pose&lt;br&gt;PoseWithCovarianceStamped" vertex="1">
+          <mxGeometry height="80" width="195" x="54" y="397" as="geometry" />
+        </mxCell>
+        <mxCell id="n87" parent="4drABsTxXk2ukwIIJcH1-160" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;dashed=1;" value="costmap layers&lt;br&gt;LaserScan/PointCloud →&lt;br&gt;obstacle/inflation layer" vertex="1">
+          <mxGeometry height="80" width="195" x="376" y="397" as="geometry" />
+        </mxCell>
+        <mxCell id="n89" edge="1" parent="4drABsTxXk2ukwIIJcH1-160" source="n83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n84" value="ComputePathToPose">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n90" edge="1" parent="4drABsTxXk2ukwIIJcH1-160" source="n83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n85" value="FollowPath">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n91" edge="1" parent="4drABsTxXk2ukwIIJcH1-160" source="n84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n85" value="nav_msgs/Path">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n92" edge="1" parent="4drABsTxXk2ukwIIJcH1-160" source="n86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n84" value="amcl_pose&lt;br&gt;(현재 위치)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n93" edge="1" parent="4drABsTxXk2ukwIIJcH1-160" source="n87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n85" value="costmap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n98" edge="1" parent="4drABsTxXk2ukwIIJcH1-142" source="n60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n83" value="/robot3/navigate_to_pose&lt;br&gt;nav2_msgs/action/NavigateToPose&lt;br&gt;goal: PoseStamped(x,y,yaw)">
+          <mxGeometry relative="1" x="0.3093" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="435" y="1205" />
+              <mxPoint x="435" y="1468" />
+              <mxPoint x="355" y="1468" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n101" edge="1" parent="4drABsTxXk2ukwIIJcH1-142" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n79" value="/robot3/db/get_prescription&lt;br&gt;medi_interfaces/srv/GetPrescription&lt;br&gt;req: string patient_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1106" y="1517" />
+              <mxPoint x="1106" y="410" />
+              <mxPoint x="566" y="410" />
+            </Array>
+            <mxPoint x="1106" y="1517" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-324" parent="4drABsTxXk2ukwIIJcH1-142" style="swimlane;whiteSpace=wrap;html=1;" value="patient_identifier_node" vertex="1">
+          <mxGeometry height="649" width="375" x="974" y="1520" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-287" parent="4drABsTxXk2ukwIIJcH1-324" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="QR 스캔 (QrScanner)&lt;br&gt;최신 프레임 · 3회 재시도" vertex="1">
+          <mxGeometry height="40" width="210" x="79" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-288" parent="4drABsTxXk2ukwIIJcH1-324" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="QR 디코드?" vertex="1">
+          <mxGeometry height="58" width="140" x="114" y="109" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-289" parent="4drABsTxXk2ukwIIJcH1-324" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="GetPrescription(patient_id)&lt;br&gt;PatientValidator (DB 조회)" vertex="1">
+          <mxGeometry height="40" width="210" x="79" y="189" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-290" parent="4drABsTxXk2ukwIIJcH1-324" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="DB 방 == 방문 room?" vertex="1">
+          <mxGeometry height="58" width="140" x="114" y="249" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-291" parent="4drABsTxXk2ukwIIJcH1-324" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="status=identified" vertex="1">
+          <mxGeometry height="34" width="102" x="79" y="331" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-292" parent="4drABsTxXk2ukwIIJcH1-324" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="status=mismatch" vertex="1">
+          <mxGeometry height="34" width="102" x="187" y="331" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-293" parent="4drABsTxXk2ukwIIJcH1-324" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="timeout(5s) 경과?" vertex="1">
+          <mxGeometry height="56" width="140" x="114" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-294" parent="4drABsTxXk2ukwIIJcH1-324" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="status=absent (부재)" vertex="1">
+          <mxGeometry height="34" width="210" x="79" y="489" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-295" parent="4drABsTxXk2ukwIIJcH1-324" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="patient_identified 1회 발행" vertex="1">
+          <mxGeometry height="42" width="210" x="79" y="569" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-297" edge="1" parent="4drABsTxXk2ukwIIJcH1-324" source="4drABsTxXk2ukwIIJcH1-287" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;" target="4drABsTxXk2ukwIIJcH1-288">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-298" edge="1" parent="4drABsTxXk2ukwIIJcH1-324" source="4drABsTxXk2ukwIIJcH1-288" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="4drABsTxXk2ukwIIJcH1-289" value="yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-299" edge="1" parent="4drABsTxXk2ukwIIJcH1-324" source="4drABsTxXk2ukwIIJcH1-289" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;" target="4drABsTxXk2ukwIIJcH1-290">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-300" edge="1" parent="4drABsTxXk2ukwIIJcH1-324" source="4drABsTxXk2ukwIIJcH1-290" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" target="4drABsTxXk2ukwIIJcH1-291" value="yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-301" edge="1" parent="4drABsTxXk2ukwIIJcH1-324" source="4drABsTxXk2ukwIIJcH1-290" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" target="4drABsTxXk2ukwIIJcH1-292" value="no">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-302" edge="1" parent="4drABsTxXk2ukwIIJcH1-324" source="4drABsTxXk2ukwIIJcH1-288" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.785;entryY=0.281;entryDx=0;entryDy=0;entryPerimeter=0;" target="4drABsTxXk2ukwIIJcH1-293" value="no">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="352" y="137" />
+              <mxPoint x="352" y="380" />
+              <mxPoint x="224" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-303" edge="1" parent="4drABsTxXk2ukwIIJcH1-324" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=1.005;exitY=0.497;exitDx=0;exitDy=0;exitPerimeter=0;" value="no (재시도)">
+          <mxGeometry relative="1" x="-0.8224" y="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="333" y="408" />
+              <mxPoint x="333" y="69" />
+            </Array>
+            <mxPoint x="254.00000000000006" y="407.83200000000033" as="sourcePoint" />
+            <mxPoint x="289" y="69" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-304" edge="1" parent="4drABsTxXk2ukwIIJcH1-324" source="4drABsTxXk2ukwIIJcH1-293" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="4drABsTxXk2ukwIIJcH1-294" value="yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-305" edge="1" parent="4drABsTxXk2ukwIIJcH1-324" source="4drABsTxXk2ukwIIJcH1-291" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=-0.003;exitY=0.369;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="4drABsTxXk2ukwIIJcH1-295">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="40" y="344" />
+              <mxPoint x="40" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-307" edge="1" parent="4drABsTxXk2ukwIIJcH1-324" source="4drABsTxXk2ukwIIJcH1-294" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;" target="4drABsTxXk2ukwIIJcH1-295">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-326" edge="1" parent="4drABsTxXk2ukwIIJcH1-324" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;entryX=1.009;entryY=0.593;entryDx=0;entryDy=0;entryPerimeter=0;" target="4drABsTxXk2ukwIIJcH1-295">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="322" y="348" />
+              <mxPoint x="322" y="589" />
+              <mxPoint x="291" y="589" />
+            </Array>
+            <mxPoint x="289" y="348" as="sourcePoint" />
+            <mxPoint x="-884" y="2862" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n117" edge="1" parent="4drABsTxXk2ukwIIJcH1-324" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0.5;exitY=0;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" value="/robot3/oakd/rgb/image_raw&lt;br&gt;sensor_msgs/Image">
+          <mxGeometry relative="1" x="-0.2813" y="-1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="189" y="975" />
+              <mxPoint x="189" y="633" />
+            </Array>
+            <mxPoint x="190" y="975" as="sourcePoint" />
+            <mxPoint x="189" y="617" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n99" edge="1" parent="4drABsTxXk2ukwIIJcH1-142" source="n62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.691;entryY=0.002;entryDx=0;entryDy=0;entryPerimeter=0;" target="4drABsTxXk2ukwIIJcH1-324" value="/robot3/identify/start&lt;br&gt;std_msgs/String (=room_id)">
+          <mxGeometry relative="1" x="0.7292" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1233" y="1375" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n102" edge="1" parent="4drABsTxXk2ukwIIJcH1-142" source="n79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;entryX=0.907;entryY=0.004;entryDx=0;entryDy=0;entryPerimeter=0;" target="4drABsTxXk2ukwIIJcH1-324" value="resp: success, PatientInfo,&lt;br&gt;MedicineInfo[] (현재 빈배열)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="603" y="385" />
+              <mxPoint x="1314" y="385" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n88" parent="4drABsTxXk2ukwIIJcH1-142" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;verticalAlign=top;strokeWidth=2;fontColor=#333333;" value="· goal PoseStamped → bt_navigator (BT 실행)&lt;br&gt;· planner_server: ComputePathToPose → Path&lt;br&gt;· controller_server: FollowPath(Path) → cmd_vel&lt;br&gt;· amcl: /scan+map → amcl_pose 로 localize&lt;br&gt;· costmap: /scan 로 장애물 갱신" vertex="1">
+          <mxGeometry height="87" width="255" x="591" y="1729" as="geometry" />
+        </mxCell>
+        <mxCell id="OFUF_CfVwZ2uhrald7n0-7" parent="4drABsTxXk2ukwIIJcH1-142" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="방 / 침대를 자동 순찰하며&lt;div&gt;환자가 입력한 정보를 바탕으로&lt;/div&gt;&lt;div&gt;문진표를 업데이트하는 시나리오&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="262" x="377" y="563" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-180" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&amp;nbsp;PC 2 (robot 6)" vertex="1">
+          <mxGeometry height="2351" width="1985.95" x="2157" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-183" parent="4drABsTxXk2ukwIIJcH1-180" style="swimlane;whiteSpace=wrap;html=1;swimlaneFillColor=none;" value="mission_manager_node" vertex="1">
+          <mxGeometry height="694" width="360" x="56" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-184" parent="4drABsTxXk2ukwIIJcH1-183" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="mission_request 수신" vertex="1">
+          <mxGeometry height="40" width="210" x="74" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-185" parent="4drABsTxXk2ukwIIJcH1-183" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="IDLE" vertex="1">
+          <mxGeometry height="40" width="210" x="74" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-186" parent="4drABsTxXk2ukwIIJcH1-183" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="UNDOCK&lt;br&gt;(Create3 action)" vertex="1">
+          <mxGeometry height="46" width="210" x="74" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-187" parent="4drABsTxXk2ukwIIJcH1-183" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="MEDICINE_START&lt;br&gt;apply(&#39;start&#39;,&#39;medicine&#39;)" vertex="1">
+          <mxGeometry height="50" width="210" x="74" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-188" parent="4drABsTxXk2ukwIIJcH1-183" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="medicine status&lt;br&gt;== done ?" vertex="1">
+          <mxGeometry height="80" width="180" x="89" y="374" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-189" parent="4drABsTxXk2ukwIIJcH1-183" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="DOCK&lt;br&gt;(Create3 action)" vertex="1">
+          <mxGeometry height="46" width="210" x="74" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-190" parent="4drABsTxXk2ukwIIJcH1-183" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="DONE&lt;br&gt;mission_feedback" vertex="1">
+          <mxGeometry height="46" width="210" x="74" y="596" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-192" edge="1" parent="4drABsTxXk2ukwIIJcH1-183" source="4drABsTxXk2ukwIIJcH1-184" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="4drABsTxXk2ukwIIJcH1-185" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-193" edge="1" parent="4drABsTxXk2ukwIIJcH1-183" source="4drABsTxXk2ukwIIJcH1-185" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="4drABsTxXk2ukwIIJcH1-186" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-194" edge="1" parent="4drABsTxXk2ukwIIJcH1-183" source="4drABsTxXk2ukwIIJcH1-186" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="4drABsTxXk2ukwIIJcH1-187" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-195" edge="1" parent="4drABsTxXk2ukwIIJcH1-183" source="4drABsTxXk2ukwIIJcH1-187" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="4drABsTxXk2ukwIIJcH1-188" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-196" edge="1" parent="4drABsTxXk2ukwIIJcH1-183" source="4drABsTxXk2ukwIIJcH1-188" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.869;entryDx=0;entryDy=0;entryPerimeter=0;" target="4drABsTxXk2ukwIIJcH1-187" value="no (대기)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="414" />
+              <mxPoint x="330" y="338" />
+              <mxPoint x="284" y="338" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-197" edge="1" parent="4drABsTxXk2ukwIIJcH1-183" source="4drABsTxXk2ukwIIJcH1-188" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="4drABsTxXk2ukwIIJcH1-189" value="yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-198" edge="1" parent="4drABsTxXk2ukwIIJcH1-183" source="4drABsTxXk2ukwIIJcH1-189" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="4drABsTxXk2ukwIIJcH1-190" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-200" parent="4drABsTxXk2ukwIIJcH1-180" style="swimlane;whiteSpace=wrap;html=1;" value="db_bridge package" vertex="1">
+          <mxGeometry height="388" width="697" x="648" y="73" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-203" parent="4drABsTxXk2ukwIIJcH1-200" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontStyle=1;strokeWidth=2;" value="db_node&lt;br&gt;RTDB ↔ ROS 브리지" vertex="1">
+          <mxGeometry height="70" width="170" x="266" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-331" parent="4drABsTxXk2ukwIIJcH1-200" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;strokeWidth=2;" value="rooms_server&lt;br&gt;ListRooms 서버" vertex="1">
+          <mxGeometry height="60" width="190" x="475" y="243" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-334" parent="4drABsTxXk2ukwIIJcH1-200" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;strokeWidth=2;" value="prescription_server&lt;br&gt;GetPrescription 서버" vertex="1">
+          <mxGeometry height="60" width="200" x="249" y="243" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-332" parent="4drABsTxXk2ukwIIJcH1-200" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;strokeWidth=2;" value="display_bridge" vertex="1">
+          <mxGeometry height="60" width="190" x="32" y="243" as="geometry" />
+        </mxCell>
+        <mxCell id="n163" edge="1" parent="4drABsTxXk2ukwIIJcH1-180" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.495;entryY=-0.011;entryDx=0;entryDy=0;entryPerimeter=0;" target="4drABsTxXk2ukwIIJcH1-203" value="/robot6/mission_feedback&lt;br&gt;std_msgs/String (JSON)&lt;br&gt;{id, status, detail}">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="34" y="1144" />
+              <mxPoint x="34" y="127" />
+              <mxPoint x="999" y="127" />
+              <mxPoint x="999" y="148" />
+            </Array>
+            <mxPoint x="123.96" y="1144" as="sourcePoint" />
+            <mxPoint x="992.960000000001" y="154" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-206" parent="4drABsTxXk2ukwIIJcH1-180" style="swimlane;whiteSpace=wrap;html=1;fillStyle=solid;labelBackgroundColor=none;swimlaneFillColor=none;" value="medicine_mode_node" vertex="1">
+          <mxGeometry height="770" width="360" x="605" y="863" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-207" parent="4drABsTxXk2ukwIIJcH1-206" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="mode/medicine/set&lt;br&gt;{active:true} 수신" vertex="1">
+          <mxGeometry height="44" width="230" x="71" y="69" as="geometry" />
+        </mxCell>
+        <mxCell id="n124" parent="4drABsTxXk2ukwIIJcH1-206" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="NavigateToPose&lt;br&gt;(약 제조실 이동)" vertex="1">
+          <mxGeometry height="50" width="210" x="81" y="137" as="geometry" />
+        </mxCell>
+        <mxCell id="n125" parent="4drABsTxXk2ukwIIJcH1-206" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="set round mode&lt;br&gt;{active:true}" vertex="1">
+          <mxGeometry height="50" width="210" x="81" y="207" as="geometry" />
+        </mxCell>
+        <mxCell id="n126" parent="4drABsTxXk2ukwIIJcH1-206" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="tracker cmd_vel 수신" vertex="1">
+          <mxGeometry height="46" width="210" x="81" y="277" as="geometry" />
+        </mxCell>
+        <mxCell id="n127" parent="4drABsTxXk2ukwIIJcH1-206" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="safety_gate&lt;br&gt;/scan &lt; 0.30m ?" vertex="1">
+          <mxGeometry height="86" width="180" x="96" y="343" as="geometry" />
+        </mxCell>
+        <mxCell id="n128" parent="4drABsTxXk2ukwIIJcH1-206" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="전진속도 0" vertex="1">
+          <mxGeometry height="44" width="110" x="71" y="461" as="geometry" />
+        </mxCell>
+        <mxCell id="n129" parent="4drABsTxXk2ukwIIJcH1-206" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="cmd_vel 통과" vertex="1">
+          <mxGeometry height="44" width="110" x="191" y="461" as="geometry" />
+        </mxCell>
+        <mxCell id="n130" parent="4drABsTxXk2ukwIIJcH1-206" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="완료 트리거?" vertex="1">
+          <mxGeometry height="76" width="180" x="96" y="544" as="geometry" />
+        </mxCell>
+        <mxCell id="n132" parent="4drABsTxXk2ukwIIJcH1-206" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="mode/medicine/status&lt;br&gt;{done}" vertex="1">
+          <mxGeometry height="46" width="210" x="81" y="658" as="geometry" />
+        </mxCell>
+        <mxCell id="n134" edge="1" parent="4drABsTxXk2ukwIIJcH1-206" source="4drABsTxXk2ukwIIJcH1-207" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="n124" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="186.02325581395417" y="117" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n135" edge="1" parent="4drABsTxXk2ukwIIJcH1-206" source="n124" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n125" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n136" edge="1" parent="4drABsTxXk2ukwIIJcH1-206" source="n125" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n126" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n137" edge="1" parent="4drABsTxXk2ukwIIJcH1-206" source="n126" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n127" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n138" edge="1" parent="4drABsTxXk2ukwIIJcH1-206" source="n127" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="n128" value="yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n139" edge="1" parent="4drABsTxXk2ukwIIJcH1-206" source="n127" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="n129" value="no">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n140" edge="1" parent="4drABsTxXk2ukwIIJcH1-206" source="n128" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n130" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n141" edge="1" parent="4drABsTxXk2ukwIIJcH1-206" source="n129" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="n130" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n143" edge="1" parent="4drABsTxXk2ukwIIJcH1-206" source="n130" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="n126" value="no (추종 계속)">
+          <mxGeometry relative="1" x="0.2865" y="-2" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="335" y="581" />
+              <mxPoint x="335" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n142" edge="1" parent="4drABsTxXk2ukwIIJcH1-206" source="n130" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="n132" value="yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-225" edge="1" parent="4drABsTxXk2ukwIIJcH1-180" source="4drABsTxXk2ukwIIJcH1-187" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;edgeStyle=elbowEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.01;entryY=0.49;entryDx=0;entryDy=0;entryPerimeter=0;" target="4drABsTxXk2ukwIIJcH1-207" value="/robot6/mode/medicine/set&lt;br&gt;std_msgs/String(JSON {active})&lt;br&gt;LATCHED">
+          <mxGeometry relative="1" x="0.3737" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="369" y="821" as="sourcePoint" />
+            <mxPoint x="646" y="958" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-227" parent="4drABsTxXk2ukwIIJcH1-180" style="swimlane;whiteSpace=wrap;html=1;" value="Nav2 Stack" vertex="1">
+          <mxGeometry height="588" width="625" x="164" y="1716" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-228" parent="4drABsTxXk2ukwIIJcH1-227" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;dashed=1;" value="bt_navigator&lt;br&gt;action server: /robot6/navigate_to_pose&lt;br&gt;nav2_msgs/action/NavigateToPose&lt;br&gt;(goal: geometry_msgs/PoseStamped)" vertex="1">
+          <mxGeometry height="75" width="410" x="103.5" y="91" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-229" parent="4drABsTxXk2ukwIIJcH1-227" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;dashed=1;" value="planner_server&lt;br&gt;+ global_costmap&lt;br&gt;ComputePathToPose&lt;br&gt;→ nav_msgs/Path" vertex="1">
+          <mxGeometry height="80" width="195" x="54" y="218" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-230" parent="4drABsTxXk2ukwIIJcH1-227" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;dashed=1;" value="controller_server&lt;br&gt;+ local_costmap&lt;br&gt;FollowPath(nav_msgs/Path)&lt;br&gt;→ cmd_vel" vertex="1">
+          <mxGeometry height="80" width="195" x="376" y="218" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-231" parent="4drABsTxXk2ukwIIJcH1-227" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;dashed=1;" value="amcl (localization)&lt;br&gt;scan + map →&lt;br&gt;/robot6/amcl_pose&lt;br&gt;PoseWithCovarianceStamped" vertex="1">
+          <mxGeometry height="80" width="195" x="54" y="397" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-232" parent="4drABsTxXk2ukwIIJcH1-227" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;dashed=1;" value="costmap layers&lt;br&gt;LaserScan/PointCloud →&lt;br&gt;obstacle/inflation layer" vertex="1">
+          <mxGeometry height="80" width="195" x="376" y="397" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-233" edge="1" parent="4drABsTxXk2ukwIIJcH1-227" source="4drABsTxXk2ukwIIJcH1-228" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="4drABsTxXk2ukwIIJcH1-229" value="ComputePathToPose">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-234" edge="1" parent="4drABsTxXk2ukwIIJcH1-227" source="4drABsTxXk2ukwIIJcH1-228" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="4drABsTxXk2ukwIIJcH1-230" value="FollowPath">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-235" edge="1" parent="4drABsTxXk2ukwIIJcH1-227" source="4drABsTxXk2ukwIIJcH1-229" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="4drABsTxXk2ukwIIJcH1-230" value="nav_msgs/Path">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-236" edge="1" parent="4drABsTxXk2ukwIIJcH1-227" source="4drABsTxXk2ukwIIJcH1-231" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="4drABsTxXk2ukwIIJcH1-229" value="amcl_pose&lt;br&gt;(현재 위치)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-237" edge="1" parent="4drABsTxXk2ukwIIJcH1-227" source="4drABsTxXk2ukwIIJcH1-232" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="4drABsTxXk2ukwIIJcH1-230" value="costmap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n168" edge="1" parent="4drABsTxXk2ukwIIJcH1-180" source="n124" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="4drABsTxXk2ukwIIJcH1-228" value="/robot6/navigate_to_pose&lt;br&gt;nav2_msgs/action/NavigateToPose&lt;br&gt;goal: PoseStamped">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-327" edge="1" parent="4drABsTxXk2ukwIIJcH1-180" source="n132" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="4drABsTxXk2ukwIIJcH1-188">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="567" y="1544" />
+              <mxPoint x="567" y="998" />
+              <mxPoint x="285" y="998" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-328" connectable="0" parent="4drABsTxXk2ukwIIJcH1-327" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;/robot6/mode/medicine/status&lt;/span&gt;&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;std_msgs/String(JSON)&lt;/span&gt;&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;running/done/failed&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.5564" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-336" parent="4drABsTxXk2ukwIIJcH1-180" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" value="tracker_node" vertex="1">
+          <mxGeometry height="826" width="363" x="1568" y="511" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-337" connectable="0" parent="4drABsTxXk2ukwIIJcH1-336" style="group" value="" vertex="1">
+          <mxGeometry height="728.77" width="200" x="78" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-338" parent="4drABsTxXk2ukwIIJcH1-337" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="mode/round/set {active:true}&lt;br&gt;수신 → control 10Hz" vertex="1">
+          <mxGeometry height="53.66633937950623" width="200" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-339" parent="4drABsTxXk2ukwIIJcH1-337" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="RGB+Depth 동기화 →&lt;br&gt;YOLO 탐지 (PersonTracker)" vertex="1">
+          <mxGeometry height="61.33295929086427" width="200" y="79.99951211851861" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-340" parent="4drABsTxXk2ukwIIJcH1-337" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="nurse target fresh?&lt;br&gt;(검출·dist&gt;0·stamp≤1s)" vertex="1">
+          <mxGeometry height="74.11065914312765" width="140" x="30" y="179.9955689536619" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-341" parent="4drABsTxXk2ukwIIJcH1-337" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="최고 conf 박스 1개 선택&lt;br&gt;error_x · 근접30% depth 거리" vertex="1">
+          <mxGeometry height="66.44403923176962" width="200" y="289.994898116625" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-342" parent="4drABsTxXk2ukwIIJcH1-337" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="|error_x| &gt; 0.25 ?" vertex="1">
+          <mxGeometry height="74.11065914312765" width="140" x="30" y="389.9976215777782" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-343" parent="4drABsTxXk2ukwIIJcH1-337" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="회전만&lt;br&gt;(정렬)" vertex="1">
+          <mxGeometry height="51.110799409053556" width="98" y="499.9969507407413" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-344" parent="4drABsTxXk2ukwIIJcH1-337" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="거리비례 직진&lt;br&gt;+ 미세회전" vertex="1">
+          <mxGeometry height="51.110799409053556" width="98" x="102" y="499.9969507407413" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-345" parent="4drABsTxXk2ukwIIJcH1-337" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="손실 지속 &gt; 5s ?&lt;br&gt;→ 정지(HOLD) / LOST_WAIT" vertex="1">
+          <mxGeometry height="56.22187934995891" width="200" y="579.9964628592601" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-346" parent="4drABsTxXk2ukwIIJcH1-337" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="cmd_vel + status + target 발행" vertex="1">
+          <mxGeometry height="58.77741932041159" width="200" y="669.9925806795885" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-347" edge="1" parent="4drABsTxXk2ukwIIJcH1-337" source="4drABsTxXk2ukwIIJcH1-338" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;" target="4drABsTxXk2ukwIIJcH1-339">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-348" edge="1" parent="4drABsTxXk2ukwIIJcH1-337" source="4drABsTxXk2ukwIIJcH1-339" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;" target="4drABsTxXk2ukwIIJcH1-340">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-349" edge="1" parent="4drABsTxXk2ukwIIJcH1-337" source="4drABsTxXk2ukwIIJcH1-340" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="4drABsTxXk2ukwIIJcH1-341" value="yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-350" edge="1" parent="4drABsTxXk2ukwIIJcH1-337" source="4drABsTxXk2ukwIIJcH1-340" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="4drABsTxXk2ukwIIJcH1-345" value="no (손실)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="216.9942322041418" />
+              <mxPoint x="240" y="607.9918476834016" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-351" edge="1" parent="4drABsTxXk2ukwIIJcH1-337" source="4drABsTxXk2ukwIIJcH1-341" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;" target="4drABsTxXk2ukwIIJcH1-342">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-352" edge="1" parent="4drABsTxXk2ukwIIJcH1-337" source="4drABsTxXk2ukwIIJcH1-342" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" target="4drABsTxXk2ukwIIJcH1-343" value="yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-353" edge="1" parent="4drABsTxXk2ukwIIJcH1-337" source="4drABsTxXk2ukwIIJcH1-342" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" target="4drABsTxXk2ukwIIJcH1-344" value="no">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-354" edge="1" parent="4drABsTxXk2ukwIIJcH1-337" source="4drABsTxXk2ukwIIJcH1-343" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.006;exitY=0.557;exitDx=0;exitDy=0;exitPerimeter=0;" target="4drABsTxXk2ukwIIJcH1-346">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-20" y="527.992335564883" />
+              <mxPoint x="-20" y="698.9912927182165" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-355" edge="1" parent="4drABsTxXk2ukwIIJcH1-337" source="4drABsTxXk2ukwIIJcH1-344" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="4drABsTxXk2ukwIIJcH1-346">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="525.99234776192" />
+              <mxPoint x="220" y="698.9912927182165" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-356" edge="1" parent="4drABsTxXk2ukwIIJcH1-337" source="4drABsTxXk2ukwIIJcH1-345" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;" target="4drABsTxXk2ukwIIJcH1-346">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n184" edge="1" parent="4drABsTxXk2ukwIIJcH1-337" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.985;entryY=0.503;entryDx=0;entryDy=0;entryPerimeter=0;" target="4drABsTxXk2ukwIIJcH1-338" value="/robot6/oakd/rgb + stereo&lt;br&gt;sensor_msgs/CompressedImage&lt;br&gt;(message_filters sync, slop 0.08)">
+          <mxGeometry relative="1" x="-0.6048" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="-513" y="1751" />
+              <mxPoint x="435" y="1751" />
+              <mxPoint x="435" y="27" />
+            </Array>
+            <mxPoint x="-513" y="1992" as="sourcePoint" />
+            <mxPoint x="202" y="28" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n164" edge="1" parent="4drABsTxXk2ukwIIJcH1-180" source="n125" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;" target="4drABsTxXk2ukwIIJcH1-336" value="/robot6/mode/round/set&lt;br&gt;std_msgs/String(JSON {active})&lt;br&gt;LATCHED">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n165" edge="1" parent="4drABsTxXk2ukwIIJcH1-180" source="4drABsTxXk2ukwIIJcH1-346" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" target="n130" value="/robot6/mode/round/status&lt;br&gt;std_msgs/String(JSON)">
+          <mxGeometry relative="1" x="-0.7696" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1790" y="1292" />
+              <mxPoint x="1790" y="1460" />
+            </Array>
+            <mxPoint x="1285" y="1805" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n166" edge="1" parent="4drABsTxXk2ukwIIJcH1-180" source="4drABsTxXk2ukwIIJcH1-346" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="n126" value="/robot6/mode/round/cmd_vel&lt;br&gt;geometry_msgs/Twist&lt;br&gt;(추종 속도)">
+          <mxGeometry relative="1" x="-0.4525" y="3" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1700" y="1292" />
+              <mxPoint x="1700" y="1425" />
+              <mxPoint x="1410" y="1425" />
+              <mxPoint x="1410" y="1208" />
+              <mxPoint x="865" y="1208" />
+            </Array>
+            <mxPoint x="1367" y="1321" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-365" edge="1" parent="4drABsTxXk2ukwIIJcH1-180" source="4drABsTxXk2ukwIIJcH1-360" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="4drABsTxXk2ukwIIJcH1-334">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1343" y="2200" />
+              <mxPoint x="2013" y="2200" />
+              <mxPoint x="2013" y="296" />
+              <mxPoint x="997" y="296" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-366" connectable="0" parent="4drABsTxXk2ukwIIJcH1-365" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;div&gt;/robot6/db/get_prescription&lt;/div&gt;&lt;div&gt;medi_interfaces/srv/GetPrescription&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.8147" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-360" parent="4drABsTxXk2ukwIIJcH1-180" style="swimlane;whiteSpace=wrap;html=1;" value="medicine_verifier_node" vertex="1">
+          <mxGeometry height="607" width="426" x="1130" y="1557" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-310" parent="4drABsTxXk2ukwIIJcH1-360" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="verify/start(patient_id, room)&lt;br&gt;(환자 도착 시 트리거)" vertex="1">
+          <mxGeometry height="40" width="174" x="131" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-311" parent="4drABsTxXk2ukwIIJcH1-360" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="웹캠 QR 스캔&lt;br&gt;→ 환자 본인 확인 (QrScanner)" vertex="1">
+          <mxGeometry height="44" width="172" x="132" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-312" parent="4drABsTxXk2ukwIIJcH1-360" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="환자 일치?" vertex="1">
+          <mxGeometry height="60" width="180" x="128" y="196" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-313" parent="4drABsTxXk2ukwIIJcH1-360" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="GetPrescription → 약 목록&lt;br&gt;약품 순차 스캔·대조 (MedicineMatcher)" vertex="1">
+          <mxGeometry height="50" width="174" x="131" y="301" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-314" parent="4drABsTxXk2ukwIIJcH1-360" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="모든 약 순서·항목 일치?" vertex="1">
+          <mxGeometry height="60" width="180" x="128" y="383" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-315" parent="4drABsTxXk2ukwIIJcH1-360" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="투약(전달) 완료&lt;br&gt;→ verify/done 발행" vertex="1">
+          <mxGeometry height="44" width="176" x="130" y="537" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-316" parent="4drABsTxXk2ukwIIJcH1-360" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="mismatch&lt;br&gt;경고·보류" vertex="1">
+          <mxGeometry height="44" width="95" x="286" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-317" edge="1" parent="4drABsTxXk2ukwIIJcH1-360" source="4drABsTxXk2ukwIIJcH1-310" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;" target="4drABsTxXk2ukwIIJcH1-311">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-318" edge="1" parent="4drABsTxXk2ukwIIJcH1-360" source="4drABsTxXk2ukwIIJcH1-311" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;" target="4drABsTxXk2ukwIIJcH1-312">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-319" edge="1" parent="4drABsTxXk2ukwIIJcH1-360" source="4drABsTxXk2ukwIIJcH1-312" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="4drABsTxXk2ukwIIJcH1-313" value="yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-320" edge="1" parent="4drABsTxXk2ukwIIJcH1-360" source="4drABsTxXk2ukwIIJcH1-313" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;" target="4drABsTxXk2ukwIIJcH1-314">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-321" edge="1" parent="4drABsTxXk2ukwIIJcH1-360" source="4drABsTxXk2ukwIIJcH1-314" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="4drABsTxXk2ukwIIJcH1-315" value="yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-322" edge="1" parent="4drABsTxXk2ukwIIJcH1-360" source="4drABsTxXk2ukwIIJcH1-312" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="4drABsTxXk2ukwIIJcH1-316" value="no">
+          <mxGeometry relative="1" x="0.2599" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-323" edge="1" parent="4drABsTxXk2ukwIIJcH1-360" source="4drABsTxXk2ukwIIJcH1-314" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#000000;fontSize=9;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="4drABsTxXk2ukwIIJcH1-316" value="no">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="413" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-362" edge="1" parent="4drABsTxXk2ukwIIJcH1-180" source="n129" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.6;entryDx=0;entryDy=0;entryPerimeter=0;" target="4drABsTxXk2ukwIIJcH1-310" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1084" y="1336" />
+              <mxPoint x="1084" y="1631" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-364" connectable="0" parent="4drABsTxXk2ukwIIJcH1-362" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;div&gt;/robot6/verify/start&lt;/div&gt;&lt;div&gt;std_msgs/String (=patient_id|room)&lt;/div&gt;&lt;div&gt;(round 중 환자 도착 시)&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.063" as="geometry">
+            <mxPoint x="1" y="-94" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-367" edge="1" parent="4drABsTxXk2ukwIIJcH1-180" source="4drABsTxXk2ukwIIJcH1-360" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="4drABsTxXk2ukwIIJcH1-332">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1343" y="2255" />
+              <mxPoint x="2051" y="2255" />
+              <mxPoint x="2051" y="279" />
+              <mxPoint x="775" y="279" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-368" connectable="0" parent="4drABsTxXk2ukwIIJcH1-367" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="투약/검증 상태 → display" vertex="1">
+          <mxGeometry relative="1" x="-0.7205" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-369" edge="1" parent="4drABsTxXk2ukwIIJcH1-180" source="4drABsTxXk2ukwIIJcH1-203" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="4drABsTxXk2ukwIIJcH1-184">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-370" connectable="0" parent="4drABsTxXk2ukwIIJcH1-369" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;div&gt;/robot6/mission_request&lt;/div&gt;&lt;div&gt;std_msgs/String (JSON)&lt;/div&gt;&lt;div&gt;{id, action, params, mode?}&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.2817" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OFUF_CfVwZ2uhrald7n0-8" parent="4drABsTxXk2ukwIIJcH1-180" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="간호사를 tracking 하며&lt;div&gt;환자에게 올바른 약을 투약하는 시나리오&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="262" x="389" y="568" as="geometry" />
+        </mxCell>
+        <mxCell id="n179" edge="1" parent="1" source="4drABsTxXk2ukwIIJcH1-186" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=classic;strokeColor=#000000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n175" value="/robot6/undock&lt;br&gt;irobot_create_msgs/action/Undock">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2130" y="1773" />
+              <mxPoint x="2130" y="3627" />
+            </Array>
+            <mxPoint x="1816" y="2511" as="sourcePoint" />
+            <mxPoint x="2066.039999999999" y="4089" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-241" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="AMR1 (robot3)" vertex="1">
+          <mxGeometry height="260" width="1444" x="2164" y="3488" as="geometry" />
+        </mxCell>
+        <mxCell id="n176" parent="4drABsTxXk2ukwIIJcH1-241" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;dashed=1;" value="OAK-D / USB webcam&lt;br&gt;rgb / stereo(depth)" vertex="1">
+          <mxGeometry height="110" width="260" x="1030" y="81" as="geometry" />
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-371" edge="1" parent="1" source="4drABsTxXk2ukwIIJcH1-203" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.764;entryY=0.955;entryDx=0;entryDy=0;entryPerimeter=0;" target="n28">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3320" y="1215" />
+              <mxPoint x="3320" y="490" />
+              <mxPoint x="1556" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-372" connectable="0" parent="4drABsTxXk2ukwIIJcH1-371" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="mission_log / mission_status write" vertex="1">
+          <mxGeometry relative="1" x="-0.5478" y="-3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="estat" edge="1" parent="1" source="n29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=classic;strokeColor=#6c8ebf;fontSize=10;labelBackgroundColor=#FFFFFF;dashed=1;exitX=0.476;exitY=1.006;exitDx=0;exitDy=0;exitPerimeter=0;" target="n35" value="GET /api/robots/{ns}/missions&lt;br&gt;(mission_status poll → 버튼 running/done)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1490" y="566" />
+              <mxPoint x="1489" y="566" />
+              <mxPoint x="1489" y="606" />
+              <mxPoint x="1795" y="606" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-374" edge="1" parent="1" source="4drABsTxXk2ukwIIJcH1-331" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.481;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.722;entryDx=0;entryDy=0;entryPerimeter=0;" target="n32">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3371" y="1236" />
+              <mxPoint x="3558" y="1236" />
+              <mxPoint x="3558" y="929" />
+              <mxPoint x="1967" y="929" />
+              <mxPoint x="1967" y="540" />
+            </Array>
+            <mxPoint x="1907.9999999999998" y="531.6666666666667" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4drABsTxXk2ukwIIJcH1-375" connectable="0" parent="4drABsTxXk2ukwIIJcH1-374" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="read rooms (x, y, yaw, patient_id)" vertex="1">
+          <mxGeometry relative="1" x="-0.4517" y="-4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
